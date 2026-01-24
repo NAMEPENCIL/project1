@@ -20,7 +20,7 @@ body {
     color: var(--text-color);
     min-height: 100vh;
     margin: 0;
-    position: relative; /* Needed for absolute positioning of children */
+    position: relative; /* Needed for absolute positioning of children like #right-panel */
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -30,10 +30,17 @@ h1 {
     margin-top: 50px;
 }
 
-#bitcoin-price {
+#right-panel {
     position: absolute;
     top: 10px;
-    right: 10px; /* Changed from left to right */
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align children to the right */
+    gap: 10px; /* Space between children */
+}
+
+#bitcoin-price {
     font-size: 2.0em;
     font-weight: bold;
     color: var(--text-color);
@@ -45,9 +52,6 @@ h1 {
 }
 
 #theme-toggle {
-    position: absolute;
-    top: 50px; /* Adjusted position to avoid overlap with bitcoin-price */
-    right: 10px;
     padding: 8px 15px;
     border: none;
     border-radius: 5px;
@@ -60,4 +64,14 @@ h1 {
 
 #theme-toggle:hover {
     opacity: 0.9;
+}
+
+#bitcoin-chart {
+    width: 400px; /* Example width for the chart */
+    height: 200px; /* Example height for the chart */
+    background-color: var(--card-background-color);
+    border-radius: 5px;
+    box-shadow: var(--card-box-shadow);
+    padding: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
