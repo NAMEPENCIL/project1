@@ -37,11 +37,11 @@ h1 {
     font-size: 1.2em;
     font-weight: bold;
     color: var(--text-color);
-    background-color: var(--card-background-color);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: var(--card-box-shadow);
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    padding: 0; /* Removed padding */
+    background-color: transparent; /* Removed background color */
+    border-radius: 0; /* Removed border-radius */
+    box-shadow: none; /* Removed box-shadow */
+    transition: color 0.3s; /* Transition only color */
 }
 
 #theme-toggle {
