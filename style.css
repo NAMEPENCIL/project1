@@ -66,6 +66,26 @@ h1 {
     opacity: 0.9;
 }
 
+#interval-buttons {
+    display: flex;
+    gap: 10px; /* Space between interval buttons */
+}
+
+#interval-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--card-background-color);
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#interval-buttons button:hover {
+    opacity: 0.9;
+}
+
 #bitcoin-chart {
     width: 600px; /* Increased width for the chart */
     height: 300px; /* Increased height for the chart */
