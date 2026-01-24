@@ -1,6 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
   const generateBtn = document.getElementById('generate-btn');
   const numbersContainer = document.getElementById('numbers-container');
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Function to apply the theme
+  const applyTheme = (theme) => {
+    if (theme === 'dark') {
+      body.dataset.theme = 'dark';
+      themeToggle.checked = true;
+    } else {
+      body.dataset.theme = 'light';
+      themeToggle.checked = false;
+    }
+  };
+
+  // Check for saved theme in localStorage
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    applyTheme(savedTheme);
+  }
+
+  // Theme toggle event listener
+  themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+      applyTheme('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      applyTheme('light');
+      localStorage.setItem('theme', 'light');
+    }
+  });
 
   const getBallColor = (number) => {
     if (number <= 10) return 'var(--ball-color-1)';
