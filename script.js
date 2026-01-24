@@ -2,6 +2,7 @@ console.log("Hello from script.js!");
 
 let bitcoinPriceChart; // Declare chart globally
 let currentChartRange = 60; // Default to 60 minutes (1 hour)
+let chartUpdateIntervalId; // Stores the setInterval ID for chart updates
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded and parsed');
@@ -38,11 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('interval-1min').addEventListener('click', () => {
         currentChartRange = 60; // Last 60 minutes
         fetchAndRenderHistoricalBitcoinPrice(currentChartRange);
+        startChartUpdateInterval(currentChartRange); // Restart interval with new range
     });
 
     document.getElementById('interval-5min').addEventListener('click', () => {
         currentChartRange = 300; // Last 300 minutes (5 hours)
         fetchAndRenderHistoricalBitcoinPrice(currentChartRange);
+        startChartUpdateInterval(currentChartRange); // Restart interval with new range
     });
 
     // Bitcoin price functionality
@@ -51,12 +54,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Historical Bitcoin price and chart functionality - initial load
     fetchAndRenderHistoricalBitcoinPrice(currentChartRange);
+    startChartUpdateInterval(currentChartRange); // Start initial chart update interval
 });
 
 function applyChartTheme() {
     const isDarkMode = document.body.classList.contains('dark-mode');
     Chart.defaults.color = isDarkMode ? '#f8f8f2' : '#333'; // Default font color
     Chart.defaults.borderColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'; // Default border color (grid lines)
+}
+
+function startChartUpdateInterval(range) {
+    if (chartUpdateIntervalId) {
+        clearInterval(chartUpdateIntervalId); // Clear existing interval
+    }
+    // Update chart every 30 seconds. API rate limits should be considered.
+    chartUpdateIntervalId = setInterval(() => {
+        fetchAndRenderHistoricalBitcoinPrice(range);
+    }, 30000); // Update every 30 seconds
 }
 
 async function fetchBitcoinPrice() {
