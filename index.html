@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div id="right-panel">
         <p id="bitcoin-price">Loading Bitcoin price...</p>
         <button id="theme-toggle">Toggle Theme</button>
-        <div id="bitcoin-chart"></div>
+        <div id="bitcoin-chart">
+            <canvas id="bitcoinPriceChart"></canvas>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
