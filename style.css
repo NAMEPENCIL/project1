@@ -1,16 +1,33 @@
+:root {
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --primary-color: #0056b3;
+    --card-background-color: #fff;
+    --card-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+body.dark-mode {
+    --background-color: #282c34;
+    --text-color: #f8f8f2;
+    --primary-color: #61dafb;
+    --card-background-color: #3a3f4a;
+    --card-box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
 body {
     font-family: sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     min-height: 100vh;
     margin: 0;
     position: relative; /* Needed for absolute positioning of children */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 h1 {
-    color: #0056b3;
-    text-align: center; /* Center the h1 */
-    margin-top: 50px; /* Add some space from the top */
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 50px;
 }
 
 #bitcoin-price {
@@ -19,9 +36,28 @@ h1 {
     left: 10px;
     font-size: 1.2em;
     font-weight: bold;
-    color: #555;
-    background-color: #fff;
+    color: var(--text-color);
+    background-color: var(--card-background-color);
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: var(--card-box-shadow);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--card-background-color);
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle:hover {
+    opacity: 0.9;
 }
