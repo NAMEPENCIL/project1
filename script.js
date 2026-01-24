@@ -120,7 +120,7 @@ async function fetchAndRenderHistoricalBitcoinPrice() {
                             maxRotation: 0,
                             minRotation: 0,
                             autoSkip: true,
-                            maxTicksLimit: 8, // Limit number of labels
+                            maxTicksLimit: 24, // Increased limit for more labels
                             color: Chart.defaults.color
                         },
                         grid: {
