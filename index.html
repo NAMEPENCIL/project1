@@ -1,36 +1,36 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Basic meta tags for character set and viewport -->
+  <!-- 문자셋 및 뷰포트에 대한 기본 메타 태그 -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Title of the page -->
+  <!-- 페이지 제목 -->
   <title>Lotto Number Generator</title>
-  <!-- Link to the external CSS file -->
+  <!-- 외부 CSS 파일 링크 -->
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <!-- Theme switcher for light/dark mode -->
+  <!-- 라이트/다크 모드 테마 전환 스위치 -->
   <div class="theme-switcher">
     <label class="theme-switch">
       <input type="checkbox" id="theme-toggle">
       <span class="slider"></span>
     </label>
   </div>
-  <!-- Main container for the application -->
+  <!-- 애플리케이션의 메인 컨테이너 -->
   <div class="container">
     <h1>Lotto Number Generator</h1>
-    <!-- Lotto machine section -->
+    <!-- 로또 머신 섹션 -->
     <div class="lotto-machine">
-      <!-- Container for the generated lotto numbers -->
+      <!-- 생성된 로또 번호 컨테이너 -->
       <div id="numbers-container" class="numbers-container">
-        <!-- Generated numbers will appear here -->
+        <!-- 생성된 번호가 여기에 표시됩니다 -->
       </div>
-      <!-- Button to generate new numbers -->
+      <!-- 새 번호 생성 버튼 -->
       <button id="generate-btn" class="generate-btn">Generate Numbers</button>
     </div>
   </div>
-  <!-- Deferred script import for the main JavaScript file -->
-  <script defer type="text/javascript" src="/main.js"></script>
+  <!-- 메인 JavaScript 파일을 위한 지연된 스크립트 가져오기 -->
+  <script defer type="text/javascript" src="/main.js"></script> 
 </body>
 </html>

@@ -1,7 +1,7 @@
-/* Import Google Fonts for custom typography */
+/* 커스텀 타이포그래피를 위해 Google Fonts 가져오기 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* Define color variables for the light theme (default) */
+/* 라이트 테마 (기본값)의 색상 변수 정의 */
 :root {
   --background-color: #f0f2f5;
   --container-bg: #ffffff;
@@ -11,7 +11,7 @@
   --shadow-color: rgba(0, 0, 0, 0.1);
   --glow-color: rgba(79, 70, 229, 0.4);
 
-  /* Colors for the lotto balls based on number range */
+  /* 번호 범위에 따른 로또 볼 색상 */
   --ball-color-1: #facc15; /* 1-10 */
   --ball-color-2: #38bdf8; /* 11-20 */
   --ball-color-3: #fb7185; /* 21-30 */
@@ -19,7 +19,7 @@
   --ball-color-5: #6ee7b7; /* 41-45 */
 }
 
-/* Define color variables for the dark theme */
+/* 다크 테마의 색상 변수 정의 */
 [data-theme='dark'] {
   --background-color: #121212;
   --container-bg: #1e1e1e;
@@ -30,7 +30,7 @@
   --glow-color: rgba(106, 99, 245, 0.4);
 }
 
-/* General body styles */
+/* 일반적인 본문 스타일 */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--background-color);
@@ -46,7 +46,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Main application container */
+/* 메인 애플리케이션 컨테이너 */
 .container {
   text-align: center;
   background: var(--container-bg);
@@ -57,7 +57,7 @@ body {
   width: 500px;
 }
 
-/* Main heading style */
+/* 메인 제목 스타일 */
 h1 {
   margin-top: 0;
   margin-bottom: 2rem;
@@ -66,7 +66,7 @@ h1 {
   color: var(--text-color);
 }
 
-/* Flex container for the lotto machine elements */
+/* 로또 머신 요소들을 위한 플렉스 컨테이너 */
 .lotto-machine {
   display: flex;
   flex-direction: column;
@@ -74,20 +74,20 @@ h1 {
   gap: 2rem;
 }
 
-/* Container for the generated number balls */
+/* 생성된 번호 볼을 위한 컨테이너 */
 .numbers-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  min-height: 60px; /* Reserve space for balls */
+  min-height: 60px; /* 볼을 위한 공간 확보 */
   padding: 1rem;
   border-radius: 0.5rem;
   background: #f9fafb;
   width: 100%;
 }
 
-/* Individual number ball styling */
+/* 개별 번호 볼 스타일 */
 .number-ball {
   width: 50px;
   height: 50px;
@@ -103,7 +103,7 @@ h1 {
   animation: pop-in 0.5s ease forwards;
 }
 
-/* Keyframe animation for the balls popping in */
+/* 볼이 팝인되는 키프레임 애니메이션 */
 @keyframes pop-in {
   from {
     transform: scale(0);
@@ -115,7 +115,7 @@ h1 {
   }
 }
 
-/* Style for the 'Generate Numbers' button */
+/* '번호 생성' 버튼 스타일 */
 .generate-btn {
   font-family: 'Poppins', sans-serif;
   font-size: 1.1rem;
@@ -130,20 +130,20 @@ h1 {
   box-shadow: 0 4px 14px 0 var(--glow-color);
 }
 
-/* Hover effect for the button */
+/* 버튼 호버 효과 */
 .generate-btn:hover {
   background-color: var(--accent-color-dark);
   box-shadow: 0 6px 20px 0 var(--glow-color);
   transform: translateY(-2px);
 }
 
-/* Active (pressed) effect for the button */
+/* 버튼 활성 (클릭) 효과 */
 .generate-btn:active {
   transform: translateY(0);
   box-shadow: 0 2px 10px 0 var(--glow-color);
 }
 
-/* Theme switcher container */
+/* 테마 전환 스위치 컨테이너 */
 .theme-switcher {
   position: absolute;
   top: 1rem;
@@ -152,7 +152,7 @@ h1 {
   align-items: center;
 }
 
-/* The switch itself */
+/* 스위치 자체 */
 .theme-switch {
   display: inline-block;
   height: 24px;
@@ -160,12 +160,12 @@ h1 {
   width: 48px;
 }
 
-/* Hide the default checkbox */
+/* 기본 체크박스 숨기기 */
 .theme-switch input {
   display: none;
 }
 
-/* The slider track */
+/* 슬라이더 트랙 */
 .slider {
   background-color: #ccc;
   bottom: 0;
@@ -178,7 +178,7 @@ h1 {
   border-radius: 24px;
 }
 
-/* The slider knob */
+/* 슬라이더 손잡이 */
 .slider:before {
   background-color: #fff;
   bottom: 4px;
@@ -191,12 +191,12 @@ h1 {
   border-radius: 50%;
 }
 
-/* Slider color when checked (dark mode active) */
+/* 체크되었을 때 슬라이더 색상 (다크 모드 활성) */
 input:checked + .slider {
   background-color: var(--accent-color);
 }
 
-/* Slider knob position when checked */
+/* 체크되었을 때 슬라이더 손잡이 위치 */
 input:checked + .slider:before {
   transform: translateX(24px);
 }
