@@ -1,27 +1,36 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Basic meta tags for character set and viewport -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Title of the page -->
   <title>Lotto Number Generator</title>
+  <!-- Link to the external CSS file -->
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
+  <!-- Theme switcher for light/dark mode -->
   <div class="theme-switcher">
     <label class="theme-switch">
       <input type="checkbox" id="theme-toggle">
       <span class="slider"></span>
     </label>
   </div>
+  <!-- Main container for the application -->
   <div class="container">
     <h1>Lotto Number Generator</h1>
+    <!-- Lotto machine section -->
     <div class="lotto-machine">
+      <!-- Container for the generated lotto numbers -->
       <div id="numbers-container" class="numbers-container">
         <!-- Generated numbers will appear here -->
       </div>
+      <!-- Button to generate new numbers -->
       <button id="generate-btn" class="generate-btn">Generate Numbers</button>
     </div>
   </div>
+  <!-- Deferred script import for the main JavaScript file -->
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
