@@ -41,7 +41,7 @@ async function fetchBitcoinPrice() {
         const data = await response.json();
         const price = data.data.amount;
         const currency = data.data.currency;
-        priceElement.textContent = `Current Bitcoin Price: ${price} ${currency}`;
+        priceElement.textContent = `BTC price: ${price} ${currency}`;
     } catch (error) {
         console.error("Failed to fetch Bitcoin price:", error);
         priceElement.textContent = "Failed to load Bitcoin price.";
