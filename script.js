@@ -1,6 +1,7 @@
 console.log("Hello from script.js!");
 
 let bitcoinPriceChart; // Declare chart globally
+let currentChartRange = 60; // Default to 60 minutes (1 hour)
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded and parsed');
@@ -30,15 +31,26 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', 'dark-mode');
         }
         applyChartTheme(); // Apply chart theme after theme change
-        fetchAndRenderHistoricalBitcoinPrice(); // Re-render chart with new theme colors
+        fetchAndRenderHistoricalBitcoinPrice(currentChartRange); // Re-render chart with new theme colors
+    });
+
+    // Interval buttons functionality
+    document.getElementById('interval-1min').addEventListener('click', () => {
+        currentChartRange = 60; // Last 60 minutes
+        fetchAndRenderHistoricalBitcoinPrice(currentChartRange);
+    });
+
+    document.getElementById('interval-5min').addEventListener('click', () => {
+        currentChartRange = 300; // Last 300 minutes (5 hours)
+        fetchAndRenderHistoricalBitcoinPrice(currentChartRange);
     });
 
     // Bitcoin price functionality
     fetchBitcoinPrice(); // Fetch current price immediately on load
     setInterval(fetchBitcoinPrice, 1000); // Fetch current price every 1 second
 
-    // Historical Bitcoin price and chart functionality
-    fetchAndRenderHistoricalBitcoinPrice();
+    // Historical Bitcoin price and chart functionality - initial load
+    fetchAndRenderHistoricalBitcoinPrice(currentChartRange);
 });
 
 function applyChartTheme() {
@@ -64,14 +76,15 @@ async function fetchBitcoinPrice() {
     }
 }
 
-async function fetchAndRenderHistoricalBitcoinPrice() {
+async function fetchAndRenderHistoricalBitcoinPrice(rangeInMinutes) {
     const chartContext = document.getElementById('bitcoinPriceChart').getContext('2d');
     const now = Math.floor(Date.now() / 1000); // current unix timestamp
-    const twentyFourHoursAgo = now - (24 * 60 * 60); // 24 hours ago
+    const fromTimestamp = now - (rangeInMinutes * 60); // calculate 'from' based on rangeInMinutes
     const isDarkMode = document.body.classList.contains('dark-mode');
 
     try {
-        const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=usd&from=${twentyFourHoursAgo}&to=${now}`);
+        // CoinGecko API for ranges <= 1 day provides minute-level granularity
+        const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=usd&from=${fromTimestamp}&to=${now}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -80,8 +93,14 @@ async function fetchAndRenderHistoricalBitcoinPrice() {
 
         const labels = prices.map(price => {
             const date = new Date(price[0]);
-            // Format time for labels more cleanly, e.g., "HH:MM"
-            return date.getHours().toString().padStart(2, '0') + ':' + date.getMinutes().toString().padStart(2, '0');
+            // Format labels based on range for better readability
+            if (rangeInMinutes <= 60) { // 1 hour or less, show minutes
+                return date.getMinutes().toString().padStart(2, '0') + 's'; // Just seconds for very short ranges
+            } else if (rangeInMinutes <= 360) { // 6 hours or less, show HH:MM
+                return date.getHours().toString().padStart(2, '0') + ':' + date.getMinutes().toString().padStart(2, '0');
+            } else { // Longer than 6 hours, show HH:MM and possibly date
+                return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' ' + date.toLocaleDateString();
+            }
         });
         const dataPoints = prices.map(price => price[1]);
 
@@ -120,7 +139,7 @@ async function fetchAndRenderHistoricalBitcoinPrice() {
                             maxRotation: 0,
                             minRotation: 0,
                             autoSkip: true,
-                            maxTicksLimit: 24, // Increased limit for more labels
+                            maxTicksLimit: 10, // Adjust as needed for clarity
                             color: Chart.defaults.color
                         },
                         grid: {
