@@ -1,7 +1,8 @@
 console.log("Hello from script.js!");
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded and parsed');
-    fetchBitcoinPrice();
+    fetchBitcoinPrice(); // Fetch price immediately on load
+    setInterval(fetchBitcoinPrice, 1000); // Fetch price every 1 second
 });
 
 async function fetchBitcoinPrice() {
