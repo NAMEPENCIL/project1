@@ -9,15 +9,22 @@
 <body>
     <div class="container">
         <aside class="sidebar">
-            <h2>My Info</h2>
-            <p>Welcome!</p>
+            <div id="my-info-section">
+                <h2>My Info</h2>
+                <p>Welcome!</p>
+            </div>
+            <div id="auth-links">
+                <!-- Login/Signup/Logout links will be dynamically loaded here -->
+            </div>
         </aside>
         <main class="main-content">
             <header>
                 <h1>Community Board</h1>
-                <div class="theme-switcher">
-                    <label for="theme-switch">Dark Mode</label>
-                    <input type="checkbox" id="theme-switch">
+                <div class="header-right">
+                    <div class="theme-switcher">
+                        <label for="theme-switch">Dark Mode</label>
+                        <input type="checkbox" id="theme-switch">
+                    </div>
                 </div>
             </header>
             <div id="post-content">
