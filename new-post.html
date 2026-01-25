@@ -37,40 +37,6 @@
     <footer>
         <p>&copy; 2026 Community Board</p>
     </footer>
-    <script>
-        const themeSwitch = document.getElementById('theme-switch');
-
-        document.getElementById('new-post-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const title = document.getElementById('title').value;
-            const content = document.getElementById('content').value;
-
-            // In a real application, you would send this data to a server.
-            // For now, we'll just log it to the console and redirect to the main page.
-            console.log('New Post:', { title, content });
-            alert('Post created successfully! (Check the console)');
-            window.location.href = 'index.html';
-        });
-
-        function switchTheme(e) {
-            if (e.target.checked) {
-                document.body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.body.classList.remove('dark-mode');
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        themeSwitch.addEventListener('change', switchTheme);
-
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            if (currentTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                themeSwitch.checked = true;
-            }
-        }
-    </script>
+    <script src="new-post.js"></script>
 </body>
 </html>
