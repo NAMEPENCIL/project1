@@ -7,24 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>New Post</h1>
-    </header>
-    <main>
-        <form id="new-post-form">
-            <div>
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
-            </div>
-            <div>
-                <label for="content">Content:</label>
-                <textarea id="content" name="content" required></textarea>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-        <a href="index.html">Back to Posts</a>
-    </main>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>My Info</h2>
+            <p>Welcome!</p>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h1>New Post</h1>
+                <div class="theme-switcher">
+                    <label for="theme-switch">Dark Mode</label>
+                    <input type="checkbox" id="theme-switch">
+                </div>
+            </header>
+            <form id="new-post-form">
+                <div>
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div>
+                    <label for="content">Content:</label>
+                    <textarea id="content" name="content" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            <a href="index.html">Back to Posts</a>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 Community Board</p>
+    </footer>
     <script>
+        const themeSwitch = document.getElementById('theme-switch');
+
         document.getElementById('new-post-form').addEventListener('submit', function(event) {
             event.preventDefault();
             const title = document.getElementById('title').value;
@@ -36,6 +51,26 @@
             alert('Post created successfully! (Check the console)');
             window.location.href = 'index.html';
         });
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        themeSwitch.addEventListener('change', switchTheme);
+
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            if (currentTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeSwitch.checked = true;
+            }
+        }
     </script>
 </body>
 </html>

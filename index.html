@@ -7,15 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Community Board</h1>
-    </header>
-    <main>
-        <div id="posts-container">
-            <!-- Posts will be dynamically loaded here -->
-        </div>
-        <a href="new-post.html" class="new-post-button">New Post</a>
-    </main>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>My Info</h2>
+            <p>Welcome!</p>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h1>Community Board</h1>
+                <div class="theme-switcher">
+                    <label for="theme-switch">Dark Mode</label>
+                    <input type="checkbox" id="theme-switch">
+                </div>
+            </header>
+            <div id="posts-container">
+                <!-- Posts will be dynamically loaded here -->
+            </div>
+            <a href="new-post.html" class="new-post-button">New Post</a>
+        </main>
+    </div>
     <footer>
         <p>&copy; 2026 Community Board</p>
     </footer>

@@ -13,10 +13,16 @@ const posts = [
         id: 3,
         title: "Third Post",
         content: "This is the content of the third post."
+    },
+    {
+        id: 4,
+        title: "Fourth Post",
+        content: "This is the content of the fourth post."
     }
 ];
 
 const postsContainer = document.getElementById('posts-container');
+const themeSwitch = document.getElementById('theme-switch');
 
 function renderPosts() {
     postsContainer.innerHTML = '';
@@ -28,6 +34,26 @@ function renderPosts() {
         `;
         postsContainer.appendChild(postElement);
     });
+}
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+themeSwitch.addEventListener('change', switchTheme);
+
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeSwitch.checked = true;
+    }
 }
 
 renderPosts();
