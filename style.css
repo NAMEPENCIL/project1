@@ -157,3 +157,9 @@ form button[type="submit"] {
 form button[type="submit"]:hover {
     opacity: 0.9;
 }
+
+.sidebar-item {
+    margin-top: 1rem; /* Add some space above the theme switcher */
+    padding-top: 1rem; /* Add some padding above the theme switcher */
+    border-top: 1px solid var(--border-color); /* Add a separator */
+}
