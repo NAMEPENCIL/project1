@@ -1,97 +1,54 @@
-:root {
-    --background-color: #f0f0f0;
-    --text-color: #333;
-    --primary-color: #0056b3;
-    --card-background-color: #fff;
-    --card-box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-body.dark-mode {
-    --background-color: #282c34;
-    --text-color: #f8f8f2;
-    --primary-color: #61dafb;
-    --card-background-color: #3a3f4a;
-    --card-box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}
-
 body {
     font-family: sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    min-height: 100vh;
     margin: 0;
-    position: relative; /* Needed for absolute positioning of children like #right-panel */
-    transition: background-color 0.3s, color 0.3s;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-h1 {
-    color: var(--primary-color);
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
     text-align: center;
-    margin-top: 50px;
 }
 
-#right-panel {
-    position: absolute;
-    top: 10px;
-    left: 10px; /* Changed from right to left */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Changed from flex-end to flex-start */
-    gap: 20px; /* Increased space between children */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 5px;
 }
 
-#bitcoin-price {
-    font-size: 2.5em; /* Increased font size */
-    font-weight: bold;
-    color: var(--text-color);
+#posts-container {
+    list-style: none;
     padding: 0;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    transition: color 0.3s;
 }
 
-#theme-toggle {
-    padding: 12px 20px; /* Increased padding */
-    border: none;
+.post {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+}
+
+.post:last-child {
+    border-bottom: none;
+}
+
+.post h2 {
+    margin-top: 0;
+}
+
+.post a {
+    text-decoration: none;
+    color: #333;
+}
+
+.new-post-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
     border-radius: 5px;
-    background-color: var(--primary-color);
-    color: var(--card-background-color);
-    cursor: pointer;
-    font-size: 1.1em; /* Increased font size */
-    transition: background-color 0.3s, color 0.3s;
-}
-
-#theme-toggle:hover {
-    opacity: 0.9;
-}
-
-#interval-buttons {
-    display: flex;
-    gap: 10px; /* Space between interval buttons */
-}
-
-#interval-buttons button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--primary-color);
-    color: var(--card-background-color);
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-#interval-buttons button:hover {
-    opacity: 0.9;
-}
-
-#bitcoin-chart {
-    width: 600px; /* Increased width for the chart */
-    height: 300px; /* Increased height for the chart */
-    background-color: var(--card-background-color);
-    border-radius: 5px;
-    box-shadow: var(--card-box-shadow);
-    padding: 10px;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 1rem;
 }

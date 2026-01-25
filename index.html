@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Community Board</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div id="right-panel">
-        <p id="bitcoin-price">Loading Bitcoin price...</p>
-        <button id="theme-toggle">Toggle Theme</button>
-        <div id="interval-buttons">
-            <button id="interval-1min">1 Min</button>
-            <button id="interval-5min">5 Min</button>
+    <header>
+        <h1>Community Board</h1>
+    </header>
+    <main>
+        <div id="posts-container">
+            <!-- Posts will be dynamically loaded here -->
         </div>
-        <div id="bitcoin-chart">
-            <canvas id="bitcoinPriceChart"></canvas>
-        </div>
-    </div>
-    <script src="script.js"></script>
+        <a href="new-post.html" class="new-post-button">New Post</a>
+    </main>
+    <footer>
+        <p>&copy; 2026 Community Board</p>
+    </footer>
+    <script src="js.js"></script>
 </body>
 </html>

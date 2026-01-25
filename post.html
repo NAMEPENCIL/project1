@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Community Board</h1>
+    </header>
+    <main>
+        <div id="post-content">
+            <!-- Post content will be dynamically loaded here -->
+        </div>
+        <a href="index.html">Back to Posts</a>
+    </main>
+    <script>
+        const posts = [
+            {
+                id: 1,
+                title: "First Post",
+                content: "This is the content of the first post."
+            },
+            {
+                id: 2,
+                title: "Second Post",
+                content: "This is the content of the second post."
+            },
+            {
+                id: 3,
+                title: "Third Post",
+                content: "This is the content of the third post."
+            }
+        ];
+
+        const postContentContainer = document.getElementById('post-content');
+
+        function renderPost() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+            const post = posts.find(p => p.id === postId);
+
+            if (post) {
+                postContentContainer.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <p>${post.content}</p>
+                `;
+            } else {
+                postContentContainer.innerHTML = "<p>Post not found.</p>";
+            }
+        }
+
+        renderPost();
+    </script>
+</body>
+</html>
