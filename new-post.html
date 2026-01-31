@@ -20,6 +20,10 @@
                 <label for="theme-switch">Dark Mode</label>
                 <input type="checkbox" id="theme-switch">
             </div>
+            <div id="trending-posts-container" class="sidebar-item">
+                <h2>Trending Posts</h2>
+                <!-- Trending posts will be dynamically loaded here -->
+            </div>
         </aside>
         <main class="main-content">
             <header>
@@ -33,6 +37,15 @@
                     <input type="text" id="title" name="title" required>
                 </div>
                 <div>
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="General">General</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                        <option value="News">News</option>
+                    </select>
+                </div>
+                <div>
                     <label for="content">Content:</label>
                     <textarea id="content" name="content" required></textarea>
                 </div>
@@ -44,6 +57,7 @@
     <footer>
         <p>&copy; 2026 Community Board</p>
     </footer>
+    <script src="trending.js"></script>
     <script src="new-post.js"></script>
 </body>
 </html>

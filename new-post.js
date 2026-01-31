@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
     updateAuthUI();
+    renderTrendingPosts();
 });
 
 
@@ -50,12 +51,18 @@ document.getElementById('new-post-form').addEventListener('submit', function(eve
     event.preventDefault();
     const title = document.getElementById('title').value;
     const content = document.getElementById('content').value;
+    const category = document.getElementById('category').value;
+    const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
 
     let posts = JSON.parse(localStorage.getItem('posts')) || [];
     const newPost = {
         id: posts.length > 0 ? Math.max(...posts.map(p => p.id)) + 1 : 1,
         title: title,
-        content: content
+        content: content,
+        author: loggedInUser.username,
+        category: category,
+        comments: [],
+        likes: 0
     };
     posts.push(newPost);
     localStorage.setItem('posts', JSON.stringify(posts));

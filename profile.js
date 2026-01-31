@@ -1,10 +1,8 @@
-const postContentContainer = document.getElementById('post-content');
+const profileInfoContainer = document.getElementById('profile-info');
+const userPostsContainer = document.getElementById('user-posts-container');
 const themeSwitch = document.getElementById('theme-switch');
 const myInfoSection = document.getElementById('my-info-section');
 const authLinks = document.getElementById('auth-links');
-const commentsContainer = document.getElementById('comments-container');
-const commentForm = document.getElementById('comment-form');
-const commentText = document.getElementById('comment-text');
 
 // Initialize posts from localStorage or use default posts
 let posts = JSON.parse(localStorage.getItem('posts'));
@@ -50,40 +48,30 @@ if (!posts) {
     localStorage.setItem('posts', JSON.stringify(posts));
 }
 
-function renderPost() {
+function renderUserProfile() {
     const urlParams = new URLSearchParams(window.location.search);
-    const postId = parseInt(urlParams.get('id'));
-    const post = posts.find(p => p.id === postId);
+    const username = urlParams.get('user');
 
-    if (post) {
-        postContentContainer.innerHTML = `
-            <h1>${post.title}</h1>
-            <p>by <a href="profile.html?user=${post.author}">${post.author}</a></p>
-            <p>Category: ${post.category}</p>
-            <p>${post.content}</p>
-            <p>Likes: ${post.likes}</p>
-        `;
-        renderComments();
+    if (username) {
+        profileInfoContainer.innerHTML = `<h2>${username}'s Profile</h2>`;
+        
+        const userPosts = posts.filter(post => post.author === username);
+        
+        userPostsContainer.innerHTML = '';
+        if (userPosts.length > 0) {
+            userPosts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.classList.add('post');
+                postElement.innerHTML = `
+                    <h2><a href="post.html?id=${post.id}">${post.title}</a></h2>
+                `;
+                userPostsContainer.appendChild(postElement);
+            });
+        } else {
+            userPostsContainer.innerHTML = '<p>This user has no posts yet.</p>';
+        }
     } else {
-        postContentContainer.innerHTML = '<p>Post not found.</p>';
-    }
-}
-
-function renderComments() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = parseInt(urlParams.get('id'));
-    const post = posts.find(p => p.id === postId);
-
-    commentsContainer.innerHTML = '';
-    if (post && post.comments) {
-        post.comments.forEach(comment => {
-            const commentElement = document.createElement('div');
-            commentElement.classList.add('comment');
-            commentElement.innerHTML = `
-                <p><strong><a href="profile.html?user=${comment.author}">${comment.author}</a></strong>: ${comment.text}</p>
-            `;
-            commentsContainer.appendChild(commentElement);
-        });
+        profileInfoContainer.innerHTML = '<h2>User not found.</h2>';
     }
 }
 
@@ -104,44 +92,20 @@ function updateAuthUI() {
         myInfoSection.innerHTML = `<h2>My Info</h2><p>Welcome, ${loggedInUser.username}!</p>`;
         authLinks.innerHTML = `<button id="logout-button">Logout</button>`;
         document.getElementById('logout-button').addEventListener('click', logout);
-        commentForm.style.display = 'block';
     } else {
         myInfoSection.innerHTML = `<h2>My Info</h2><p>Welcome!</p>`;
         authLinks.innerHTML = `
             <p><a href="login.html">Log In</a></p>
             <p><a href="signup.html">Sign Up</a></p>
         `;
-        commentForm.style.display = 'none';
     }
 }
 
 function logout() {
     sessionStorage.removeItem('loggedInUser');
     updateAuthUI();
-    window.location.href = 'index.html'; // Redirect to refresh UI
+    window.location.href = 'index.html';
 }
-
-commentForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = parseInt(urlParams.get('id'));
-    const post = posts.find(p => p.id === postId);
-    const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
-
-    if (post && loggedInUser) {
-        const newComment = {
-            author: loggedInUser.username,
-            text: commentText.value
-        };
-        if (!post.comments) {
-            post.comments = [];
-        }
-        post.comments.push(newComment);
-        localStorage.setItem('posts', JSON.stringify(posts));
-        renderComments();
-        commentText.value = '';
-    }
-});
 
 themeSwitch.addEventListener('change', switchTheme);
 
@@ -153,6 +117,6 @@ if (currentTheme) {
     }
 }
 
-renderPost();
-updateAuthUI(); // Call on load to set initial auth state
+renderUserProfile();
+updateAuthUI();
 renderTrendingPosts();

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post</title>
+    <title>User Profile</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,24 +27,16 @@
         </aside>
         <main class="main-content">
             <header>
-                <h1>Community Board</h1>
+                <h1>User Profile</h1>
                 <div class="header-right">
                 </div>
             </header>
-            <div id="post-content">
-                <!-- Post content will be dynamically loaded here -->
+            <div id="profile-info">
+                <!-- Profile info will be dynamically loaded here -->
             </div>
-            <hr>
-            <div id="comments-section">
-                <h2>Comments</h2>
-                <div id="comments-container">
-                    <!-- Comments will be dynamically loaded here -->
-                </div>
-                <form id="comment-form">
-                    <h3>Leave a Comment</h3>
-                    <textarea id="comment-text" placeholder="Write your comment here..." required></textarea>
-                    <button type="submit">Submit</button>
-                </form>
+            <h2>Posts by this user</h2>
+            <div id="user-posts-container">
+                <!-- User's posts will be dynamically loaded here -->
             </div>
             <a href="index.html">Back to Posts</a>
         </main>
@@ -53,6 +45,6 @@
         <p>&copy; 2026 Community Board</p>
     </footer>
     <script src="trending.js"></script>
-    <script src="post.js"></script>
+    <script src="profile.js"></script>
 </body>
 </html>
