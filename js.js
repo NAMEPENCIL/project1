@@ -40,6 +40,13 @@ if (!posts) {
         }
     ];
     localStorage.setItem('posts', JSON.stringify(posts));
+} else {
+    // Ensure all existing posts have a likes property
+    posts = posts.map(post => ({
+        ...post,
+        likes: post.likes === undefined ? 0 : post.likes
+    }));
+    localStorage.setItem('posts', JSON.stringify(posts)); // Update localStorage with potentially new 'likes' properties
 }
 
 const postsContainer = document.getElementById('posts-container');
