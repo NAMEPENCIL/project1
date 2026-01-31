@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
     updateAuthUI();
-    renderTrendingPosts();
 });
 
 

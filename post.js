@@ -155,4 +155,3 @@ if (currentTheme) {
 
 renderPost();
 updateAuthUI(); // Call on load to set initial auth state
-renderTrendingPosts();

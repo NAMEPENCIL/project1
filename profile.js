@@ -119,4 +119,3 @@ if (currentTheme) {
 
 renderUserProfile();
 updateAuthUI();
-renderTrendingPosts();
