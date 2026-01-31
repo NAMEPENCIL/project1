@@ -61,9 +61,9 @@ function renderPosts(filter = 'all') {
         postElement.classList.add('post');
         postElement.innerHTML = `
             <h2><a href="post.html?id=${post.id}">${post.title}</a></h2>
-            <p>by <a href="profile.html?user=${post.author}">${post.author}</a></p>
-            <p>Category: ${post.category}</p>
-            <button class="like-button" data-id="${post.id}">Like</button>
+            <p>${getTranslation('by_prefix')} <a href="profile.html?user=${post.author}">${post.author}</a></p>
+            <p>${getTranslation('category_prefix')} ${post.category}</p>
+            <button class="like-button" data-id="${post.id}">${getTranslation('like_button')}</button>
             <span class="likes-count">${post.likes}</span>
         `;
         postsContainer.appendChild(postElement);
@@ -74,14 +74,14 @@ postsContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains('like-button')) {
         const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
         if (!loggedInUser) {
-            alert('You must be logged in to like a post.');
+            alert(getTranslation('must_be_logged_in_to_like_alert'));
             return;
         }
 
         const postId = parseInt(e.target.dataset.id);
         let likedPosts = JSON.parse(sessionStorage.getItem('likedPosts')) || [];
         if (likedPosts.includes(postId)) {
-            alert('You have already liked this post.');
+            alert(getTranslation('already_liked_post_alert'));
             return;
         }
 
@@ -115,18 +115,19 @@ function updateAuthUI() {
     const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
 
     if (loggedInUser) {
-        myInfoSection.innerHTML = `<h2>My Info</h2><p>Welcome, ${loggedInUser.username}!</p>`;
-        authLinks.innerHTML = `<button id="logout-button">Logout</button>`;
+        myInfoSection.innerHTML = `<h2 data-i18n="my_info_title"></h2><p>${getTranslation('welcome_message').replace('!', ', ' + loggedInUser.username + '!')}</p>`;
+        authLinks.innerHTML = `<button id="logout-button">${getTranslation('logout_button')}</button>`;
         document.getElementById('logout-button').addEventListener('click', logout);
         newPostButton.style.display = 'inline-block'; // Show new post button
     } else {
-        myInfoSection.innerHTML = `<h2>My Info</h2><p>Welcome!</p>`;
+        myInfoSection.innerHTML = `<h2 data-i18n="my_info_title"></h2><p data-i18n="welcome_message"></p>`;
         authLinks.innerHTML = `
-            <p><a href="login.html">Log In</a></p>
-            <p><a href="signup.html">Sign Up</a></p>
+            <p><a href="login.html">${getTranslation('login_button')}</a></p>
+            <p><a href="signup.html">${getTranslation('signup_link')}</a></p>
         `;
         newPostButton.style.display = 'none'; // Hide new post button
     }
+    translatePage(currentLanguage); // Re-translate static elements in the updated UI
 }
 
 function logout() {

@@ -58,14 +58,14 @@ function renderPost() {
     if (post) {
         postContentContainer.innerHTML = `
             <h1>${post.title}</h1>
-            <p>by <a href="profile.html?user=${post.author}">${post.author}</a></p>
-            <p>Category: ${post.category}</p>
+            <p>${getTranslation('by_prefix')} <a href="profile.html?user=${post.author}">${post.author}</a></p>
+            <p>${getTranslation('category_prefix')} ${post.category}</p>
             <p>${post.content}</p>
-            <p>Likes: ${post.likes}</p>
+            <p>${getTranslation('likes_prefix')} ${post.likes}</p>
         `;
         renderComments();
     } else {
-        postContentContainer.innerHTML = '<p>Post not found.</p>';
+        postContentContainer.innerHTML = `<p>${getTranslation('post_not_found_message')}</p>`;
     }
 }
 
@@ -101,18 +101,19 @@ function updateAuthUI() {
     const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
 
     if (loggedInUser) {
-        myInfoSection.innerHTML = `<h2>My Info</h2><p>Welcome, ${loggedInUser.username}!</p>`;
-        authLinks.innerHTML = `<button id="logout-button">Logout</button>`;
+        myInfoSection.innerHTML = `<h2 data-i18n="my_info_title"></h2><p>${getTranslation('welcome_message').replace('!', ', ' + loggedInUser.username + '!')}</p>`;
+        authLinks.innerHTML = `<button id="logout-button">${getTranslation('logout_button')}</button>`;
         document.getElementById('logout-button').addEventListener('click', logout);
         commentForm.style.display = 'block';
     } else {
-        myInfoSection.innerHTML = `<h2>My Info</h2><p>Welcome!</p>`;
+        myInfoSection.innerHTML = `<h2 data-i18n="my_info_title"></h2><p data-i18n="welcome_message"></p>`;
         authLinks.innerHTML = `
-            <p><a href="login.html">Log In</a></p>
-            <p><a href="signup.html">Sign Up</a></p>
+            <p><a href="login.html">${getTranslation('login_button')}</a></p>
+            <p><a href="signup.html">${getTranslation('signup_link')}</a></p>
         `;
         commentForm.style.display = 'none';
     }
+    translatePage(currentLanguage); // Re-translate static elements in the updated UI
 }
 
 function logout() {

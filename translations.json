@@ -1,0 +1,210 @@
+{
+    "community_board_title": {
+        "en": "Community Board",
+        "ko": "커뮤니티 게시판"
+    },
+    "my_info_title": {
+        "en": "My Info",
+        "ko": "내 정보"
+    },
+    "welcome_message": {
+        "en": "Welcome!",
+        "ko": "환영합니다!"
+    },
+    "dark_mode_label": {
+        "en": "Dark Mode",
+        "ko": "다크 모드"
+    },
+    "trending_posts_title": {
+        "en": "Trending Posts",
+        "ko": "인기 게시물"
+    },
+    "korean_language_label": {
+        "en": "한국어",
+        "ko": "한국어"
+    },
+    "filter_by_category_label": {
+        "en": "Filter by category:",
+        "ko": "카테고리별 필터링:"
+    },
+    "category_all": {
+        "en": "All",
+        "ko": "모두"
+    },
+    "category_general": {
+        "en": "General",
+        "ko": "일반"
+    },
+    "category_technology": {
+        "en": "Technology",
+        "ko": "기술"
+    },
+    "category_lifestyle": {
+        "en": "Lifestyle",
+        "ko": "라이프스타일"
+    },
+    "category_news": {
+        "en": "News",
+        "ko": "뉴스"
+    },
+    "new_post_button": {
+        "en": "New Post",
+        "ko": "새 글 작성"
+    },
+    "copyright_text": {
+        "en": "&copy; 2026 Community Board",
+        "ko": "&copy; 2026 커뮤니티 게시판"
+    },
+    "login_title": {
+        "en": "Log In",
+        "ko": "로그인"
+    },
+    "username_label": {
+        "en": "Username:",
+        "ko": "사용자 이름:"
+    },
+    "password_label": {
+        "en": "Password:",
+        "ko": "비밀번호:"
+    },
+    "login_button": {
+        "en": "Log In",
+        "ko": "로그인"
+    },
+    "no_account_text": {
+        "en": "Don't have an account?",
+        "ko": "계정이 없으신가요?"
+    },
+    "signup_link": {
+        "en": "Sign up",
+        "ko": "가입하기"
+    },
+    "signup_title": {
+        "en": "Sign Up",
+        "ko": "회원가입"
+    },
+    "confirm_password_label": {
+        "en": "Confirm Password:",
+        "ko": "비밀번호 확인:"
+    },
+    "already_have_account_text": {
+        "en": "Already have an account?",
+        "ko": "이미 계정이 있으신가요?"
+    },
+    "signup_button": {
+        "en": "Sign Up",
+        "ko": "가입하기"
+    },
+    "title_label": {
+        "en": "Title:",
+        "ko": "제목:"
+    },
+    "content_label": {
+        "en": "Content:",
+        "ko": "내용:"
+    },
+    "submit_button": {
+        "en": "Submit",
+        "ko": "제출"
+    },
+    "back_to_posts_link": {
+        "en": "Back to Posts",
+        "ko": "게시물 목록으로"
+    },
+    "post_title": {
+        "en": "Post",
+        "ko": "게시물"
+    },
+    "comments_title": {
+        "en": "Comments",
+        "ko": "댓글"
+    },
+    "leave_a_comment_title": {
+        "en": "Leave a Comment",
+        "ko": "댓글 남기기"
+    },
+    "write_comment_placeholder": {
+        "en": "Write your comment here...",
+        "ko": "여기에 댓글을 작성하세요..."
+    },
+    "user_profile_title": {
+        "en": "User Profile",
+        "ko": "사용자 프로필"
+    },
+    "posts_by_this_user_title": {
+        "en": "Posts by this user",
+        "ko": "이 사용자의 게시물"
+    },
+    "by_prefix": {
+        "en": "by",
+        "ko": "작성자:"
+    },
+    "category_prefix": {
+        "en": "Category:",
+        "ko": "카테고리:"
+    },
+    "like_button": {
+        "en": "Like",
+        "ko": "좋아요"
+    },
+    "likes_prefix": {
+        "en": "Likes:",
+        "ko": "좋아요:"
+    },
+    "login_successful_alert": {
+        "en": "Login successful!",
+        "ko": "로그인 성공!"
+    },
+    "invalid_credentials_alert": {
+        "en": "Invalid username or password.",
+        "ko": "잘못된 사용자 이름 또는 비밀번호입니다."
+    },
+    "passwords_mismatch_alert": {
+        "en": "Passwords do not match!",
+        "ko": "비밀번호가 일치하지 않습니다!"
+    },
+    "username_exists_alert": {
+        "en": "Username already exists!",
+        "ko": "사용자 이름이 이미 존재합니다!"
+    },
+    "signup_successful_alert": {
+        "en": "Sign up successful! Please log in.",
+        "ko": "회원가입 성공! 로그인 해주세요."
+    },
+    "must_be_logged_in_to_post_alert": {
+        "en": "You must be logged in to create a new post.",
+        "ko": "새 게시물을 작성하려면 로그인해야 합니다."
+    },
+    "post_created_successful_alert": {
+        "en": "Post created successfully!",
+        "ko": "게시물이 성공적으로 작성되었습니다!"
+    },
+    "post_not_found_message": {
+        "en": "Post not found.",
+        "ko": "게시물을 찾을 수 없습니다."
+    },
+    "must_be_logged_in_to_like_alert": {
+        "en": "You must be logged in to like a post.",
+        "ko": "게시물에 좋아요를 누르려면 로그인해야 합니다."
+    },
+    "already_liked_post_alert": {
+        "en": "You have already liked this post.",
+        "ko": "이미 이 게시물에 좋아요를 눌렀습니다."
+    },
+    "username_profile_title": {
+        "en": "${username}'s Profile",
+        "ko": "${username}님의 프로필"
+    },
+    "no_posts_by_this_user_message": {
+        "en": "This user has no posts yet.",
+        "ko": "이 사용자는 아직 게시물이 없습니다."
+    },
+    "user_not_found_message": {
+        "en": "User not found.",
+        "ko": "사용자를 찾을 수 없습니다."
+    },
+    "likes_count_suffix": {
+        "en": "likes",
+        "ko": "개 좋아요"
+    }
+}

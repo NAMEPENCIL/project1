@@ -20,12 +20,12 @@ document.getElementById('login-form').addEventListener('submit', async function(
         const hashedPassword = await hashPassword(password, user.salt);
         if (hashedPassword === user.passwordHash) {
             sessionStorage.setItem('loggedInUser', JSON.stringify({ username: user.username })); // Only store username in session
-            alert('Login successful!');
+            alert(getTranslation('login_successful_alert'));
             window.location.href = 'index.html';
         } else {
-            alert('Invalid username or password.');
+            alert(getTranslation('invalid_credentials_alert'));
         }
     } else {
-        alert('Invalid username or password.');
+        alert(getTranslation('invalid_credentials_alert'));
     }
 });

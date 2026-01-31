@@ -3,63 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Post</title>
+    <title data-i18n="new_post_button">New Post</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <aside class="sidebar">
             <div id="my-info-section">
-                <h2>My Info</h2>
-                <p>Welcome!</p>
+                <h2 data-i18n="my_info_title">My Info</h2>
+                <p data-i18n="welcome_message">Welcome!</p>
             </div>
             <div id="auth-links">
                 <!-- Login/Signup/Logout links will be dynamically loaded here -->
             </div>
             <div class="theme-switcher sidebar-item">
-                <label for="theme-switch">Dark Mode</label>
+                <label for="theme-switch" data-i18n="dark_mode_label">Dark Mode</label>
                 <input type="checkbox" id="theme-switch">
             </div>
             <div id="trending-posts-container" class="sidebar-item">
-                <h2>Trending Posts</h2>
+                <h2 data-i18n="trending_posts_title">Trending Posts</h2>
                 <!-- Trending posts will be dynamically loaded here -->
             </div>
             <div class="language-switcher sidebar-item">
-                <label for="lang-switch">한국어</label>
+                <label for="lang-switch" data-i18n="korean_language_label">한국어</label>
                 <input type="checkbox" id="lang-switch">
             </div>
         </aside>
         <main class="main-content">
             <header>
-                <h1>New Post</h1>
+                <h1 data-i18n="new_post_button">New Post</h1>
                 <div class="header-right">
                 </div>
             </header>
             <form id="new-post-form">
                 <div>
-                    <label for="title">Title:</label>
+                    <label for="title" data-i18n="title_label">Title:</label>
                     <input type="text" id="title" name="title" required>
                 </div>
                 <div>
-                    <label for="category">Category:</label>
+                    <label for="category" data-i18n="category_prefix">Category:</label>
                     <select id="category" name="category">
-                        <option value="General">General</option>
-                        <option value="Technology">Technology</option>
-                        <option value="Lifestyle">Lifestyle</option>
-                        <option value="News">News</option>
+                        <option value="General" data-i18n="category_general">General</option>
+                        <option value="Technology" data-i18n="category_technology">Technology</option>
+                        <option value="Lifestyle" data-i18n="category_lifestyle">Lifestyle</option>
+                        <option value="News" data-i18n="category_news">News</option>
                     </select>
                 </div>
                 <div>
-                    <label for="content">Content:</label>
-                    <textarea id="content" name="content" required></textarea>
+                    <label for="content" data-i18n="content_label">Content:</label>
+                    <textarea id="content" name="content" data-i18n-placeholder="write_comment_placeholder" required></textarea>
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" data-i18n="submit_button">Submit</button>
             </form>
-            <a href="index.html">Back to Posts</a>
+            <a href="index.html" data-i18n="back_to_posts_link">Back to Posts</a>
         </main>
     </div>
     <footer>
-        <p>&copy; 2026 Community Board</p>
+        <p data-i18n="copyright_text">&copy; 2026 Community Board</p>
     </footer>
     <script src="language.js"></script>
     <script src="trending.js"></script>

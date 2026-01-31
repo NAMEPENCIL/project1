@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title data-i18n="login_title">Log In</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <main class="main-content">
             <header>
-                <h1>Log In</h1>
+                <h1 data-i18n="login_title">Log In</h1>
             </header>
             <form id="login-form">
                 <div>
-                    <label for="username">Username:</label>
+                    <label for="username" data-i18n="username_label">Username:</label>
                     <input type="text" id="username" name="username" required>
                 </div>
                 <div>
-                    <label for="password">Password:</label>
+                    <label for="password" data-i18n="password_label">Password:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <button type="submit">Log In</button>
+                <button type="submit" data-i18n="login_button">Log In</button>
             </form>
-            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+            <p><span data-i18n="no_account_text">Don't have an account?</span> <a href="signup.html" data-i18n="signup_link">Sign up</a></p>
         </main>
     </div>
+    <script src="language.js"></script>
     <script src="login.js"></script>
 </body>
 </html>

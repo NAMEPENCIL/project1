@@ -3,56 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Board</title>
+    <title data-i18n="community_board_title">Community Board</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <aside class="sidebar">
             <div id="my-info-section">
-                <h2>My Info</h2>
-                <p>Welcome!</p>
+                <h2 data-i18n="my_info_title">My Info</h2>
+                <p data-i18n="welcome_message">Welcome!</p>
             </div>
             <div id="auth-links">
                 <!-- Login/Signup/Logout links will be dynamically loaded here -->
             </div>
             <div class="theme-switcher sidebar-item">
-                <label for="theme-switch">Dark Mode</label>
+                <label for="theme-switch" data-i18n="dark_mode_label">Dark Mode</label>
                 <input type="checkbox" id="theme-switch">
             </div>
             <div id="trending-posts-container" class="sidebar-item">
-                <h2>Trending Posts</h2>
+                <h2 data-i18n="trending_posts_title">Trending Posts</h2>
                 <!-- Trending posts will be dynamically loaded here -->
             </div>
             <div class="language-switcher sidebar-item">
-                <label for="lang-switch">한국어</label>
+                <label for="lang-switch" data-i18n="korean_language_label">한국어</label>
                 <input type="checkbox" id="lang-switch">
             </div>
         </aside>
         <main class="main-content">
             <header>
-                <h1>Community Board</h1>
+                <h1 data-i18n="community_board_title">Community Board</h1>
                 <div class="header-right">
                 </div>
             </header>
             <div class="category-filter-container">
-                <label for="category-filter">Filter by category:</label>
+                <label for="category-filter" data-i18n="filter_by_category_label">Filter by category:</label>
                 <select id="category-filter">
-                    <option value="all">All</option>
-                    <option value="General">General</option>
-                    <option value="Technology">Technology</option>
-                    <option value="Lifestyle">Lifestyle</option>
-                    <option value="News">News</option>
+                    <option value="all" data-i18n="category_all">All</option>
+                    <option value="General" data-i18n="category_general">General</option>
+                    <option value="Technology" data-i18n="category_technology">Technology</option>
+                    <option value="Lifestyle" data-i18n="category_lifestyle">Lifestyle</option>
+                    <option value="News" data-i18n="category_news">News</option>
                 </select>
             </div>
             <div id="posts-container">
                 <!-- Posts will be dynamically loaded here -->
             </div>
-            <a href="new-post.html" class="new-post-button" id="new-post-button" style="display: none;">New Post</a>
+            <a href="new-post.html" class="new-post-button" id="new-post-button" style="display: none;" data-i18n="new_post_button">New Post</a>
         </main>
     </div>
     <footer>
-        <p>&copy; 2026 Community Board</p>
+        <p data-i18n="copyright_text">&copy; 2026 Community Board</p>
     </footer>
     <script src="language.js"></script>
     <script src="trending.js"></script>

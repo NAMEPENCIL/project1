@@ -51,9 +51,10 @@ if (!posts) {
 function renderUserProfile() {
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('user');
+    let currentLang = document.documentElement.lang;
 
     if (username) {
-        profileInfoContainer.innerHTML = `<h2>${username}'s Profile</h2>`;
+        profileInfoContainer.innerHTML = `<h2>${getTranslation('username_profile_title', currentLang).replace('${username}', username)}</h2>`;
         
         const userPosts = posts.filter(post => post.author === username);
         
@@ -68,10 +69,10 @@ function renderUserProfile() {
                 userPostsContainer.appendChild(postElement);
             });
         } else {
-            userPostsContainer.innerHTML = '<p>This user has no posts yet.</p>';
+            userPostsContainer.innerHTML = `<p>${getTranslation('no_posts_by_this_user_message', currentLang)}</p>`;
         }
     } else {
-        profileInfoContainer.innerHTML = '<h2>User not found.</h2>';
+        profileInfoContainer.innerHTML = `<h2>${getTranslation('user_not_found_message', currentLang)}</h2>`;
     }
 }
 
@@ -89,16 +90,17 @@ function updateAuthUI() {
     const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
 
     if (loggedInUser) {
-        myInfoSection.innerHTML = `<h2>My Info</h2><p>Welcome, ${loggedInUser.username}!</p>`;
-        authLinks.innerHTML = `<button id="logout-button">Logout</button>`;
+        myInfoSection.innerHTML = `<h2 data-i18n="my_info_title"></h2><p>${getTranslation('welcome_message').replace('!', ', ' + loggedInUser.username + '!')}</p>`;
+        authLinks.innerHTML = `<button id="logout-button">${getTranslation('logout_button')}</button>`;
         document.getElementById('logout-button').addEventListener('click', logout);
     } else {
-        myInfoSection.innerHTML = `<h2>My Info</h2><p>Welcome!</p>`;
+        myInfoSection.innerHTML = `<h2 data-i18n="my_info_title"></h2><p data-i18n="welcome_message"></p>`;
         authLinks.innerHTML = `
-            <p><a href="login.html">Log In</a></p>
-            <p><a href="signup.html">Sign Up</a></p>
+            <p><a href="login.html">${getTranslation('login_button')}</a></p>
+            <p><a href="signup.html">${getTranslation('signup_link')}</a></p>
         `;
     }
+    translatePage(currentLanguage); // Re-translate static elements in the updated UI
 }
 
 function logout() {

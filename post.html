@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post</title>
+    <title data-i18n="post_title">Post</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <aside class="sidebar">
             <div id="my-info-section">
-                <h2>My Info</h2>
-                <p>Welcome!</p>
+                <h2 data-i18n="my_info_title">My Info</h2>
+                <p data-i18n="welcome_message">Welcome!</p>
             </div>
             <div id="auth-links">
                 <!-- Login/Signup/Logout links will be dynamically loaded here -->
             </div>
             <div class="theme-switcher sidebar-item">
-                <label for="theme-switch">Dark Mode</label>
+                <label for="theme-switch" data-i18n="dark_mode_label">Dark Mode</label>
                 <input type="checkbox" id="theme-switch">
             </div>
             <div id="trending-posts-container" class="sidebar-item">
-                <h2>Trending Posts</h2>
+                <h2 data-i18n="trending_posts_title">Trending Posts</h2>
                 <!-- Trending posts will be dynamically loaded here -->
             </div>
             <div class="language-switcher sidebar-item">
-                <label for="lang-switch">한국어</label>
+                <label for="lang-switch" data-i18n="korean_language_label">한국어</label>
                 <input type="checkbox" id="lang-switch">
             </div>
         </aside>
         <main class="main-content">
             <header>
-                <h1>Community Board</h1>
+                <h1 data-i18n="community_board_title">Community Board</h1>
                 <div class="header-right">
                 </div>
             </header>
@@ -40,21 +40,21 @@
             </div>
             <hr>
             <div id="comments-section">
-                <h2>Comments</h2>
+                <h2 data-i18n="comments_title">Comments</h2>
                 <div id="comments-container">
                     <!-- Comments will be dynamically loaded here -->
                 </div>
                 <form id="comment-form">
-                    <h3>Leave a Comment</h3>
-                    <textarea id="comment-text" placeholder="Write your comment here..." required></textarea>
-                    <button type="submit">Submit</button>
+                    <h3 data-i18n="leave_a_comment_title">Leave a Comment</h3>
+                    <textarea id="comment-text" data-i18n-placeholder="write_comment_placeholder" required></textarea>
+                    <button type="submit" data-i18n="submit_button">Submit</button>
                 </form>
             </div>
-            <a href="index.html">Back to Posts</a>
+            <a href="index.html" data-i18n="back_to_posts_link">Back to Posts</a>
         </main>
     </div>
     <footer>
-        <p>&copy; 2026 Community Board</p>
+        <p data-i18n="copyright_text">&copy; 2026 Community Board</p>
     </footer>
     <script src="language.js"></script>
     <script src="trending.js"></script>

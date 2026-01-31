@@ -21,14 +21,14 @@ document.getElementById('signup-form').addEventListener('submit', async function
     const confirmPassword = document.getElementById('confirm-password').value;
 
     if (password !== confirmPassword) {
-        alert('Passwords do not match!');
+        alert(getTranslation('passwords_mismatch_alert'));
         return;
     }
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
 
     if (users.find(user => user.username === username)) {
-        alert('Username already exists!');
+        alert(getTranslation('username_exists_alert'));
         return;
     }
 
@@ -38,6 +38,6 @@ document.getElementById('signup-form').addEventListener('submit', async function
     users.push({ username: username, passwordHash: hashedPassword, salt: salt });
     localStorage.setItem('users', JSON.stringify(users));
 
-    alert('Sign up successful! Please log in.');
+    alert(getTranslation('signup_successful_alert'));
     window.location.href = 'login.html';
 });
